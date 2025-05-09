@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+  	<head>
+    		<title>Exercise07</title>
+	</head>
+  	<body>
+    		<p>Formular 1</p>
+    		<form action="A07.html" method="POST" enctype="multipart/form-data">
+      			<p>
+					<label>Language:</label> 
+					<input type="checkbox" name="lang" value="de" id="lang_de"/>
+					<label for="lang_de">Deutsch</label> 
+					<input type="checkbox" name="lang" value="en" checked="checked" id="lang_en"/>
+					<label for="lang_en">English</label>
+    			</p>
+      			<p>
+					<label>Country:</label> 
+					<input type="radio" name="country" value="germany" id="germany"/><label for="germany">Deutschland</label> 
+					<input type="radio" name="country" value="usa" checked="checked" id="usa"/><label for="usa">USA</label>
+      			</p>
+      			<p>
+					<label for="dest">Destination:</label>
+        			<select name="dest" id="dest">
+          				<optgroup label="Europe">
+            					<option>Germany</option>
+            					<option>England</option>
+          				</optgroup>
+          				<optgroup label="Africa">
+            					<option>Tunesia</option>
+            					<option>Egypt</option>
+          				</optgroup>
+          				<optgroup label="America">
+            					<option>Brasil</option>
+            					<option>Mexico</option>
+          				</optgroup>
+          				<optgroup label="Asia">
+            					<option>China</option>
+            					<option>Japan</option>
+          				</optgroup>
+        			</select>
+      			</p>
+      			<p>
+					<label for="cv">CV:</label>
+					<input name="lebenslauf" id="cv" type="file" size="50" />
+      			</p>
+      			<p>
+					<input type="submit" value="Send" />
+					<input type="reset" value="Clear" />
+				</p>
+    		</form>
+  	</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+  	<head>
+    		<title>Exercise06</title>
+	</head>
+  	<body>
+    		<p>Formular 1</p>
+    		<form action="A06.html" method="POST" enctype="multipart/form-data">
+      			<p>
+					<label for="salut">Salutation:</label> 
+					<select name="salut" size="1" id="salut">
+        				<option value="mr">Mr</option>
+        				<option value="mrs" selected="selected">Mrs</option>
+      				</select>
+    			</p>
+      			<p>
+        			<label for="givenname">Name:</label>
+        			<input type="text" name="name" size="25" maxlength="10" value="(Name)" id="givenname" />        
+      			</p>
+      			<p>
+        			<label for="username">Username:</label>
+					<input type="text" name="username" id="username" />
+      			</p>
+      			<p>
+        			<label for="password">Password:</label>
+					<input type="password" name="password" value="123456" id="password"/>
+      			</p>
+      			<p>
+					<label for="message">Message:</label>
+					<textarea name="message" rows="4" cols="35" id="message"></textarea>
+				</p>
+      			<p>	
+					<label for="date">Date:</label> 
+					<input type="date" name="datum" readonly="readonly" disabled="disabled" id="date" />
+      			</p>
+      			<p>
+        			<label for="category">Choose all categories:</label>
+					<select name="category" size="4" multiple="multiple" id="category">
+          				<option>Device</option>
+          				<option>Maschine</option>
+          				<option>Car</option>
+          				<option>PC</option>
+        			</select>
+      			</p>
+      			<p>
+					<input type="submit" value="Send" />
+					<input type="reset" value="Clear" />
+				</p>
+    		</form>
+  	</body>
+</html>
+

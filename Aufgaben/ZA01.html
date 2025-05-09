@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Zusatz Exercise 01</title>
+	</head>
+	<body>
+		<form method="POST" action="ZA01.html">
+			<h3>Formular 1 (* = notwendig)</h3>
+			<label for="title">Anrede:</label>
+			<select id="title" name="title">
+				<option value="mr">Herr</option>
+				<option value="mrs">Frau</option>
+				<option vlaue="unknown">Unbekannt</option>
+			</select><br />
+			<label for="name">Vorname*: </label>
+			<input type="text" placeholder="(Vorname)" name="name" id="name" required="required" pattern="[A-Z]{1}[A-Za-z]+"/><br />
+			<label for="surname">Nachname*: </label>
+			<input type="text" placeholder="(Nachname)" name="surname" id="surname" required="required" pattern="[A-Z]{1}[A-Za-z]+"><br />
+			<label for="country">L&auml;ndercode*: </label>
+			<input type="text" placeholder="(2-Zeichen L&auml;ndercode)" name="country" id="country"  pattern="[A-Za-z]{2}" required="required" /><br />
+			<input type="submit" value="Senden" />
+			<input type="reset" value="Reset" />
+		</form>
+	</body>
+</html>
+
+			

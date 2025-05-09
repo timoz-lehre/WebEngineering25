@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Zusatz Exercise 03</title>
+	</head>
+	<body>
+		<form method="POST" action="ZA03.html">
+			<h3>Formular 3 (* = notwendig)</h3>
+			<label for="search">Suchmaschine*: </label>
+			<input type="text" name="search" id="search" list="searches" required="required" /><br />
+			<label for="country">Vorwahl: </label>
+			<input type="text" pattern="\+[0-9]{1,3}" name="country" id="country" list="ccodes"/>
+			<datalist id="searches">
+				<option label="Google" value="www.google.de"></option>
+				<option label="Bing" value="www.bing.de"></option>
+				<option label="DuckDuckGo" value="duckduckgo.com"></option>
+				<option label="Yahoo" value="de.yahoo.com"></option>
+			</datalist>
+			<datalist id="ccodes">
+				<option label="Deutschland" value="+49"></option>
+				<option label="Schweiz" value="+41"></option>
+				<option label="&Ouml;sterreich" value="+43"></option>
+				<option label="Luxemburg" value="+352"></option>
+			</datalist>
+		</form>
+	</body>
+</html>
