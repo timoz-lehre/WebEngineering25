@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Aufgabe 08 mit grid</title>
+        <style>
+            body {
+                margin: 0 auto
+            }
+            div {
+                background-color: red;
+                display: grid;
+                grid-template-columns: repeat(4, 70px);
+                grid-template-rows: repeat(2, auto);
+                justify-content: center;
+            }
+            div div {
+                width: 50px;
+                height: 50px;
+                background-color: yellow;
+                border-style: solid;
+                border-width: 10px; /**/
+                border-color: green;
+
+                /*Um den Text innerhab des <div> (Blockelement) zu zentrieren nutzen wir die Eigenschaften von einem Flexcontainer*/
+                display: flex; /*Flexible ausrichtung des Content in der Box (dem div)*/
+                justify-content: wrap; /*horizontale Ausrichtung*/
+                align-items: wrap; /*vertikale Ausrichtung*/
+            }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <div>        item 1    </div>
+            <div>        item 2    </div>
+            <div>        item 3    </div>
+            <div>        item 4    </div>
+            <div>        item 5    </div>
+            <div>        item 6    </div>
+            <div>        item 7    </div>
+            <div>        item 8    </div>
+        </div>
+    </body>
+    </html>

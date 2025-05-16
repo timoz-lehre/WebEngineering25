@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Aufgabe 3</title>
+		<style type="text/css">
+		table {
+			caption-side: bottom;
+			border-collapse: separate;
+			border-spacing: 0px;
+			border: 1px solid black;
+		}
+		.special {
+			text-align: right;
+			font-style: italic;
+			border-left: 1px solid red;
+			border-left-width: thick;
+		}
+		.blue {
+			color: blue;
+		}
+		</style>
+	</head>
+	<body>
+		<table border="1">
+			<caption>Beispiel Tabelle</caption>
+			<tr>
+				<th>Titel 1</th>
+				<th>Titel 2</th>
+				<th>Titel 3</th>
+				<th>Titel 4</th>
+			</tr>
+			<tr>
+				<td>Zelle 1</td>
+				<td>Zelle 2</td>
+				<td>Zelle 3</td>
+				<td>Zelle 4</td>
+			</tr>
+			<tr>
+				<td>Zelle 5</td>
+				<td rowspan="2" colspan="2">Zelle 6</td>
+				<td>Zelle 7</td>
+			</tr>
+			<tr>
+				<td rowspan=2">Zelle 8</td>
+				<td>Zelle 9</td>
+			</tr>
+			<tr>
+				<td>Zelle 10</td>
+				<td class="special" colspan="2"><span class="blue">Zelle 11</span></td>
+			</tr>
+		</table>
+	</body>
+</html>

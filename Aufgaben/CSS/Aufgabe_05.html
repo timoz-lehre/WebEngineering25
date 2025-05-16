@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Aufgabe 5</title>
+		<style type="text/css">
+		div {
+			height: 100px;
+			width: 300px;
+			border: 3px solid black;
+			background-color: grey;
+			margin: 30px;
+		}
+		
+		.box1 {
+			border-radius: 10px;
+		}
+
+		.box2 {
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+		
+		.box3 {
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
+		}
+	
+		.black {
+			box-shadow: 5px 5px 2px black;
+		}
+
+		.blue {
+			box-shadow: -5px -5px 2px blue;
+		}
+		.red {
+			box-shadow: -5px 5px 5px red;
+		}
+
+		/*Kommentare ergänzen*/
+		/*
+		p {
+			margin: 0 auto;
+		}
+		*/
+
+
+		</style>
+	</head>
+	<body>
+	<div class="box1 black">This is some random text</div>
+	<!-- Für das Beispiel, um margin zu veranschaulichen, wenn wir Elemente schachteln und Abstände zwischen den Elementen vorkommen
+	<div class="box1 black"><p>This is some random text</p></div>
+	-->
+	<div class="box2 blue">This is some random text</div>
+	<div class="box3 red">This is some random text</div>
+	</body>
+</html>

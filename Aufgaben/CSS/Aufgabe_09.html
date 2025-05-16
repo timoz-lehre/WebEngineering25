@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Aufgabe 9</title>
+		<style type="text/css">	
+		html, body {
+			margin: 0px;
+		}
+		
+		.container {
+			display: flex;
+			background-color: red;
+			justify-content: flex-start;
+		}
+		
+		.sidebar {
+			display: flex;
+			background-color: yellow;
+			flex-direction: column;
+			justify-content: flex-start;
+			flex: 0 0 200px;
+			padding: 10px;
+		}
+				
+		.sidebar .item {
+			background-color: lightgray;
+			margin: 10px 0px;
+		}
+		
+		.content {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: row;
+			flex-grow: 1;	
+			flex-wrap: wrap;
+		}
+		
+		.content .item {
+			height: 100px;
+			margin: 10px; 
+			background-color: orange;
+			flex: 1 0 100px;
+			
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="sidebar">
+				<div class="item">Item 1</div>
+				<div class="item">Item 2</div>
+				<div class="item">Item 3</div>
+				<div class="item">Item 4</div>
+			</div>
+			<div class="content">
+				<div class="item">Item 1</div>
+				<div class="item">Item 2</div>
+				<div class="item">Item 3</div>
+				<div class="item">Item 4</div>
+			</div>
+		</div>
+	</body>
+</html>

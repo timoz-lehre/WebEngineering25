@@ -1,0 +1,11 @@
+/* Links in der Kopfzeile */
+header a {
+    font-size: 30px;
+    color: teal;
+}
+
+/* Links im Absatz mit ID "dislikes" */
+#dislikes a {
+    font-weight: bold;
+    color: red;
+}

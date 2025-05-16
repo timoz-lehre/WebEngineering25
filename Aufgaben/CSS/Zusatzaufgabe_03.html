@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Off-Canvas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel {
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .left {
+      background: #1A3E7C;
+      color: white;
+      transform: translateX(-100%);
+      position: fixed;
+      left: 0;
+      width: 100%;
+    }
+
+    .main {
+      background: #4285F4;
+      color: white;
+      width: 100%;
+    }
+
+    .right {
+      background: #D2E3FC;
+      color: black;
+      transform: translateX(100%);
+      position: fixed;
+      right: 0;
+      width: 100%;
+    }
+
+    @media (min-width: 800px) {
+      .layout {
+        flex-direction: row;
+      }
+
+      .left {
+        position: relative;
+        transform: none;
+        width: 33.3333%;
+      }
+
+      .main {
+        width: 66.6666%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .right {
+        position: relative;
+        transform: none;
+        width: 33.3333%;
+      }
+
+      .main {
+        width: 33.3333%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout">
+    <aside class="panel left">Left Panel</aside>
+    <main class="panel main">Main Content</main>
+    <aside class="panel right">Right Panel</aside>
+  </div>
+
+</body>
+</html>

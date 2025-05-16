@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>Column Drop</title>
+  <style type="text/css">
+    html, body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .col {
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+      min-height: 150px;
+      /* Default: full width */
+      flex: 1 1 100%;
+    }
+
+    .col.dark {
+      background-color: #1A3E7C;
+      color: white;
+    }
+
+    .col.blue {
+      background-color: #4285F4;
+      color: white;
+    }
+
+    .col.light {
+      background-color: #D2E3FC;
+      color: black;
+    }
+
+    /* Ab 800px: 2 Spalten nebeneinander */
+    @media (min-width: 800px) {
+      .col {
+        flex: 1 1 50%;
+      }
+
+    }
+
+    /* Ab 1200px: 3 Spalten nebeneinander */
+    @media (min-width: 1200px) {
+      .col {
+        flex: 1 1 33.3333%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="col dark">Spalte 1</div>
+    <div class="col blue">Spalte 2</div>
+    <div class="col light">Spalte 3</div>
+  </div>
+
+</body>
+</html>

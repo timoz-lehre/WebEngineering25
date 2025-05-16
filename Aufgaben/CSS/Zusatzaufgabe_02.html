@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Layout Shifter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar {
+      background: #1A3E7C;
+      color: white;
+      padding: 20px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-a, .content-b {
+      padding: 20px;
+    }
+
+    .content-a {
+      background: #4285F4;
+      color: white;
+    }
+
+    .content-b {
+      background: #D2E3FC;
+      color: black;
+    }
+
+    @media (min-width: 800px) {
+      .layout {
+        flex-direction: row;
+      }
+
+      .sidebar {
+        width: 200px;
+      }
+
+      .content {
+        flex: 1 1 0;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .content {
+        flex-direction: row;
+      }
+
+      .content-a, .content-b {
+        flex: 1 1 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">Sidebar</aside>
+    <div class="content">
+      <div class="content-a">Content A</div>
+      <div class="content-b">Content B</div>
+    </div>
+  </div>
+</body>
+</html>

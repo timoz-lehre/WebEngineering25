@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Aufgabe 4</title>
+		<style type="text/css">
+		a {
+			color: red;
+		}
+		a[href^=https]{
+			color: green;
+		}
+		p {
+			border: 3px solid black;
+			background-color: grey;
+		}
+		p::selection{
+			color: white;
+			background-color: red;
+		}
+		</style>
+	</head>
+	<body>
+	Websites:<br />
+	<ul>
+		<li><a href="https://www.google.de">https://www.google.de</a></li>
+		<li><a href="http://www.bing.com">http://www.bing.com</a></li>
+		<li><a href="https://www.mywebsite.de">https://www.mywebsite.de</a></li>
+		<li><a href="http://www.myfancesite.com">http://www.myfancysite.com</a></li>
+	</ul>
+	<p>Hello World! How are you?!</p>
+	</body>
+</html>

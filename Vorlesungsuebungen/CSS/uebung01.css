@@ -1,0 +1,18 @@
+body {
+    background-color: #e0f7ff; /* passender heller Blauton wie in der Übung */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.text-container {
+    font-family: monospace;
+    font-size: 40px;
+    font-weight: 100;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline  ;
+}

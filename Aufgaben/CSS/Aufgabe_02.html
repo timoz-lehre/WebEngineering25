@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Aufgabe 2</title>
+		<style type="text/css">
+		body {
+			background-color: lightgray;
+		}
+		.dot {
+			list-style-type: disc;
+		}
+		.circle {
+			list-style-type: circle;
+		}
+		.square {
+			list-style-type: square;
+		}
+		.nodec {
+			list-style-type: none;
+		}
+		.numeric {
+			list-style-type: decimal;
+		}
+		.roman {
+			list-style-type: lower-roman;
+		}
+		.alphabet {
+			list-style-type: upper-alpha;
+		}
+		#colored > li:first-child {
+			color: red;
+		}
+		#colored > li:last-child {
+			color: blue;
+		}
+		</style>
+	</head>
+	<body>
+	<h1>Seitentitel</h1>
+	<table border="1">
+		<tr>
+			<td>Aufz&auml;hlung</td>
+			<td>Nummerierung</td>
+		</tr>
+		<tr>
+			<td>
+				<ul class="dot">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+				<ul class="circle">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                </ul>
+				<ul class="square">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                </ul>
+				<ul class="nodec">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                </ul>
+			</td>
+			<td>
+				<ol class="nummeric">
+					<li>AA</li>
+					<li>BB</li>
+					<li>CC</li>
+				</ol>
+				<ol class="roman">
+                                        <li>AA</li>
+                                        <li>BB</li>
+                                        <li>CC</li>
+                                </ol>
+				<ol class="alphabet" id="colored">
+                                        <li>AA</li>
+                                        <li>BB</li>
+                                        <li>CC</li>
+                                </ol>
+			</td>
+		</tr>
+	</table>
+	</body>
+</html>
