@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Benutzer laden</title>
+</head>
+<body>
+  <h2>Benutzerliste</h2>
+  <button id="laden">Benutzer laden</button>
+  <ul id="liste"></ul>
+
+  <script>
+    const button = document.querySelector("#laden");
+    const liste = document.querySelector("#liste");
+
+    button.addEventListener("click", function () {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Serverfehler: " + response.status);
+          }
+          return response.json();
+        })
+        .then(users => {
+          liste.innerHTML = ""; // Liste leeren
+          users.forEach(user => {
+            const li = document.createElement("li");
+            li.textContent = `${user.name} (${user.email})`;
+            liste.appendChild(li);
+          });
+        })
+        .catch(error => {
+          alert("Fehler beim Laden: " + error.message);
+        });
+    });
+  </script>
+</body>
+</html>

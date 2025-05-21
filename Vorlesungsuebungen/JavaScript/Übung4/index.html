@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo-Liste</title>
+</head>
+<body>
+  <h2>Meine ToDo-Liste</h2>
+
+  <input type="text" id="neueAufgabe" placeholder="Neue Aufgabe eingeben" />
+  <button id="hinzufuegen">Hinzufügen</button>
+
+  <ul id="liste"></ul>
+
+  <script>
+    const input = document.querySelector("#neueAufgabe");
+    const button = document.querySelector("#hinzufuegen");
+    const liste = document.querySelector("#liste");
+
+    button.addEventListener("click", function () {
+      const text = input.value.trim();
+      if (text === "") {
+        alert("Bitte gib eine Aufgabe ein.");
+        return;
+      }
+
+      const li = document.createElement("li");
+      li.innerText = text;
+
+      const loeschenBtn = document.createElement("button");
+      loeschenBtn.innerText = "Löschen";
+      loeschenBtn.style.marginLeft = "10px";
+
+      loeschenBtn.addEventListener("click", function () {
+        li.remove();
+      });
+
+      li.appendChild(loeschenBtn);
+      liste.appendChild(li);
+
+      input.value = ""; // Eingabe zurücksetzen
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM vorher/nachher</title>
+</head>
+<body>
+  <h1 id="titel">Platzhalter</h1>
+  <p class="text">Dieser Text wird verändert.</p>
+  <div id="container"></div>
+
+  <script>
+    // DOM-Manipulation danach
+    document.querySelector("#titel").innerText = "Hallo DOM!";
+    document.querySelector(".text").style.color = "blue";
+
+    const neuerAbsatz = document.createElement("p");
+    neuerAbsatz.innerText = "Inhalt generiert";
+    document.querySelector("#container").appendChild(neuerAbsatz);
+  </script>
+</body>
+</html>
