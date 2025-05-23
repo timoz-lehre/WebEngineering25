@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 01</title>
+		<script type="text/javascript">
+		var myArray = [3,5,1,8,6,2,9,7,4];
+		
+		for(i = 0; i < myArray.length; i++){
+			for(j = 0; j < myArray.length; j++){
+				if(myArray[i] < myArray[j]){
+					let temp = myArray[i];
+					myArray[i] = myArray[j];
+					myArray[j] = temp;
+				}
+			}
+		} 
+		
+		console.log(myArray);
+
+
+		</script>
+	</head>
+	<body>
+	<h3>JavaScript Demo</h3>
+	</body>
+</html>

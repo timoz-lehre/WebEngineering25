@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe 2 - Bildergalerie</title>
+    <style>
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .image-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .image-card img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bildergalerie</h2>
+    <button id="loadBtn">Bilder laden</button>
+    <div id="loader" style="display: none;">Lade Bilder...</div>
+    <div id="gallery"></div>
+
+    <script>
+        const loadBtn = document.getElementById('loadBtn');
+        const loader = document.getElementById('loader');
+        const gallery = document.getElementById('gallery');
+
+        async function loadImages() {
+            loader.style.display = 'block';
+            gallery.innerHTML = ''; // Optional: Galerie leeren
+
+            try {
+                const response = await fetch('https://picsum.photos/v2/list?page=1&limit=5');
+                if (!response.ok) throw new Error(`Fehler: ${response.status}`);
+
+                const images = await response.json();
+
+                images.forEach(image => {
+                    const card = document.createElement('div');
+                    card.className = 'image-card';
+
+                    card.innerHTML = `
+                        <img src="${image.download_url}" alt="Bild von ${image.author}">
+                        <p>Fotograf: ${image.author}</p>
+                    `;
+
+                    gallery.appendChild(card);
+                });
+
+            } catch (error) {
+                gallery.innerHTML = `<p style="color: red;">Fehler beim Laden der Bilder.</p>`;
+                console.error("Fetch-Fehler:", error);
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        loadBtn.addEventListener('click', loadImages);
+    </script>
+</body>
+</html>

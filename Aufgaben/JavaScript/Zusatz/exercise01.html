@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 01</title>
+		<script type="text/javascript">
+		function save(){
+			var firstname = document.getElementById("firstname").value;
+			var lastname = document.getElementById("lastname").value
+			var age = document.getElementById("age").value
+		
+			var obj = {firstname: firstname, lastname: lastname, age: age };
+			history.pushState(obj,"",document.location);
+		}
+
+
+		window.addEventListener("popstate",function(event){
+			document.getElementById("firstname").value = event.state.firstname;
+			document.getElementById("lastname").value = event.state.lastname;
+			document.getElementById("age").value = event.state.age;
+		});
+		</script>
+	</head>
+	<body>
+	<h3>JavaScript Demo</h3>
+	<label for="firstname">Your Name:</label> <input type="text" id="firstname" /><br />
+	<label for="lastname">Your Lastname:</label> <input type="text" id="lastname" /><br />
+	<label for="age">Your Age:</label> <input type="number" id="age" /><br />
+	<button onclick="save();">Save</button>
+	</body>
+</html>

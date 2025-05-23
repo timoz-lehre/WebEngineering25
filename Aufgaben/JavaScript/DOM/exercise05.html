@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 05</title>
+		<script type="text/javascript">
+
+		function createRow(index){
+			var newRow = document.createElement("tr");
+                        for(i = 1; i <= 3; i++){
+                                let elem = document.createElement("td");
+                                let text = document.createTextNode(index+"-"+i);
+                                elem.appendChild(text);
+                                newRow.appendChild(elem);
+                        }
+			return newRow;
+		}
+
+		function newLineAtEnd(){
+			var tbody = document.getElementById("myTable").children[0];
+			var rowCount = tbody.children.length
+			tbody.appendChild(createRow(rowCount+1));
+		}
+
+		function newLineAtBegin(){
+			var tbody = document.getElementById("myTable").children[0];
+                        var rowCount = tbody.children.length
+                        tbody.insertBefore(createRow(2),tbody.children[1]);
+		}
+
+		function removeFirstLine(){
+			var tbody = document.getElementById("myTable").children[0];
+			tbody.removeChild(tbody.children[1]);
+		}
+
+		function removeLastLine(){
+			var tbody = document.getElementById("myTable").children[0];
+			tbody.removeChild(tbody.children[tbody.children.length-1]);
+		}
+
+		function reapplyNumbers(){
+			var tbody = document.getElementById("myTable").children[0];
+			for(i = 0; i < tbody.children.length; i++){
+				var row = tbody.children[i];
+				for(j = 0; j < row.children.length; j++){
+					row.children[j].textContent = (i+1)+"-"+(j+1);	
+				}
+			}
+		}
+		</script>
+	</head>
+	<body>
+	<h3>JavaScript Demo</h3>
+	<table id="myTable">
+		<tr>
+			<th>1-1</th>
+			<th>1-2</th>
+			<th>1-3</th>
+		</tr>
+		<tr>
+			<td>2-1</td>
+			<td>2-2</td>
+			<td>2-3</td>
+		</tr>
+		<tr>
+			<td>3-1</td>
+			<td>3-2</td>
+			<td>3-3</td>
+		</tr>
+	</table><br />
+	<button onclick="newLineAtEnd();">Add new Line (End)</button><br />
+	<button onclick="newLineAtBegin();">Add new Line (Begin)</button><br />
+	<button onclick="removeLastLine();">Remove last line</button><br />
+	<button onclick="removeFirstLine();">Remove first data line</button><br />
+	<button onclick="reapplyNumbers();">Reassign Numbers</button>
+	</body>
+</html>

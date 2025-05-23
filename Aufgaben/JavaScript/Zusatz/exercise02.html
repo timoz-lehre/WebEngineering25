@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 02</title>
+		<script type="text/javascript">
+
+		function createRow(fields){
+			let row = document.createElement("tr");
+			for(j = 0; j < fields.length; j++){
+				let cell = document.createElement("td");
+				cell.textContent = fields[j];
+				row.appendChild(cell);
+			}
+			return row;
+		}
+
+		function readCSV(event){
+			var table = document.getElementById("myTable");
+			var data = event.target.result;
+			var lines = data.split(/\r\n|\n/);
+			console.log(lines);
+			for(i = 0; i < lines.length; i++){
+				table.appendChild(createRow(lines[i].split(",")));
+			}
+		}
+
+		function readFile(event){
+			var file = event.target.files[0];
+			var reader = new FileReader();
+			reader.onload = readCSV;
+			reader.readAsText(file);
+
+		}
+		</script>
+	</head>
+	<body>
+		<input type="file" onchange="readFile(event);" />
+		<table border="1" id="myTable"></table>
+	</body>
+</html>

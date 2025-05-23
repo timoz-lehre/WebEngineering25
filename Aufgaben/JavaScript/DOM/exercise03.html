@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 03</title>
+		<script type="text/javascript">
+		function prepareListItem(text){
+			var elem = document.createElement("li");
+			var textNode = document.createTextNode(text);
+			elem.appendChild(textNode);
+			return elem;
+		}
+
+		function printArrayAsList(items, replacement){
+			var newList = document.createElement("ul");
+			newList.id = "myList";
+			for(i = 0; i < items.length; i++){
+				newList.appendChild(prepareListItem(items[i]));
+			}
+			document.body.replaceChild(newList,replacement);
+		}
+		function exercise(){
+			var myList = document.getElementById("myList");
+			var myArray = [];
+			for(i = 0; i < myList.children.length; i++){
+				myArray.push(parseInt(myList.children[i].textContent,10));
+			}
+
+			for(i = 0; i < myArray.length; i++){
+				for(j = 0; j < myArray.length; j++){
+					if(myArray[i] < myArray[j]){
+						let temp = myArray[i];
+						myArray[i] = myArray[j];
+						myArray[j] = temp;
+					}
+				}
+			}
+			printArrayAsList(myArray,myList);
+
+		}
+		</script>
+	</head>
+	<body onload="exercise();">
+	<h3>JavaScript Demo</h3>
+	<ul id="myList">
+		<li>4</li>
+		<li>2</li>
+		<li>5</li>
+		<li>9</li>
+		<li>8</li>
+	</ul>
+	</body>
+</html>

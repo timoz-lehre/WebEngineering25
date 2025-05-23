@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 04</title>
+		<script type="text/javascript">
+		function changeValue(step){
+			var oldVal = parseInt(document.getElementById("myText").textContent,10);
+			var newVal = oldVal + step;
+			document.getElementById("myText").textContent = newVal;
+		}		
+
+		function keyDown(event){
+			switch(event.keyCode){
+				case 39: //arrow right
+				case 68: //d	
+					changeValue(1);
+					break;
+				case 38: //arrow up
+				case 87: //w
+					changeValue(10);
+					break;
+				case 37: //arrow left
+				case 65: //a
+					changeValue(-1);
+					break;
+				case 40: //arrow down
+				case 83: //s
+					changeValue(-10);
+					break;
+			}
+		}
+		</script>
+	</head>
+	<body onkeydown="keyDown(event);">
+	<h3>JavaScript Counter Demo</h3>
+		<p id="myText">
+			1
+		</p>
+	</body>
+</html>

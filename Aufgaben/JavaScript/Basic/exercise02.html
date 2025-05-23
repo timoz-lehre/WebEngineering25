@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 02</title>
+		<script type="text/javascript">
+		
+		var today = new Date();
+		var months = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+		var days = ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
+
+		alert(today.getDate()+"-"+(today.getMonth()+1)+"-"+today.getFullYear());
+		alert(today.getDate()+". "+months[today.getMonth()]+" "+today.getFullYear());
+		alert(days[today.getDay()]+", "+today.getDate()+"."+(today.getMonth()+1)+"."+today.getFullYear());
+
+		</script>
+	</head>
+	<body>
+	<h3>JavaScript Demo</h3>
+	</body>
+</html>

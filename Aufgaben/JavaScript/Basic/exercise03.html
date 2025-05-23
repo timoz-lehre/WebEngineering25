@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Exercise 03</title>
+		<script type="text/javascript">
+		
+		var input1 = prompt("Geben sie Wert 1 ein");
+		var input2 = prompt("Geben sie Wert 2 ein");
+		var op = prompt("Geben sie die Operation ein");
+
+		var arg1 = parseInt(input1,10);
+		var arg2 = parseInt(input2,10);
+
+		switch(op){
+			case "+":
+			case "add":
+				alert(arg1+arg2);
+				break;
+			case "-":
+			case "sub":
+				alert(arg1-arg2);
+				break;
+			case "*":
+			case "mul":
+				alert(arg1*arg2);
+				break;
+			case "/":
+			case "div":
+				alert(arg1/arg2);
+				break;
+			default:
+				alert("I do not understand");
+		} 		
+
+
+		</script>
+	</head>
+	<body>
+	<h3>JavaScript Demo</h3>
+	</body>
+</html>
