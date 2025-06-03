@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>REST API</title>
+</head>
+<body>
+  <h2 style="text-align: center;">Aufgabe: REST API DUMMY JSON GET</h2>
+ 
+  <script>
+  fetch('https://dummyjson.com/todos', {
+    method: 'GET'
+  })
+  .then(res => res.json())
+  .then(console.log);
+  /* { status: 'ok', method: 'GET' } */
+
+  </script>
+</body>
+</html>
