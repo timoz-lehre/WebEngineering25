@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session & Local Storage Übung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #222;
+      color: white;
+    }
+    input, button {
+      padding: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Session & Local Storage Demo</h1>
+
+  <!-- Eingabefeld für Benutzernamen -->
+  <input type="text" id="nameInput" placeholder="Benutzername eingeben" />
+  <button onclick="saveName()">Login</button>
+
+  <!-- Willkommensnachricht -->
+  <p id="welcomeMsg"></p>
+
+  <!-- Umschalter für Dark/Light Mode -->
+  <button onclick="toggleMode()">Dark/Light Mode wechseln</button>
+
+  <script>
+    // Session Storage: Benutzernamen speichern
+    function saveName() {
+      const name = document.getElementById("nameInput").value;
+      sessionStorage.setItem("username", name);
+      showWelcome();
+    }
+
+    // Willkommensnachricht anzeigen
+    function showWelcome() {
+      const name = sessionStorage.getItem("username");
+      if (name) {
+        document.getElementById("welcomeMsg").textContent = `Willkommen, ${name}!`;
+      }
+    }
+
+    // Local Storage: Dark Mode umschalten und speichern
+    function toggleMode() {
+      const isDark = document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    }
+
+    // Seite initialisieren
+    window.onload = () => {
+      showWelcome();
+
+      // Theme beim Laden anwenden
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
+
+</body>
+</html>

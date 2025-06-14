@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="greeting"></div>
+    <script>
+        // 1. Cookie setzen (nur wenn noch nicht vorhanden)
+        if (!document.cookie.includes("username")) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 Tage
+
+            document.cookie = `username=student123; path=/; expires=${expires.toUTCString()}; SameSite=Lax; Secure`;
+        }
+
+        // 2. Cookie auslesen
+        const cookies = document.cookie.split("; ").reduce((acc, c) => {
+            const [key, value] = c.split("=");
+            acc[key] = value;
+            return acc;
+        }, {});
+
+        if (cookies.username) {
+            document.getElementById("greeting").textContent = `Willkommen zurück, ${cookies.username}!`;
+        }
+
+    </script>
+</body>
+
+</html>
