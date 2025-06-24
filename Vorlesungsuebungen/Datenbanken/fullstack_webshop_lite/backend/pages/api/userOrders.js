@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
@@ -11,6 +12,7 @@ export default async function handler(req, res) {
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  const products = await prisma.products.findMany();
-  res.status(200).json(products);
+  // Abfrage aus der Datenbank nach allen orders und order_items die ein user hat
+  // Falls user nicht existiert, fehlermeldung
+  // Sonst orders als json zurücksenden
 }

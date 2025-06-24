@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Webshop Frontend</title>
+</head>
+<body>
+  <h1>Register</h1>
+  <form id="registerForm">
+    <input name="name" placeholder="Name" required><br>
+    <input name="email" placeholder="Email" required><br>
+    <input name="password" type="password" placeholder="Password" required><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <h1>Login</h1>
+  <form id="loginForm">
+    <input name="email" placeholder="Email" required><br>
+    <input name="password" type="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <div id="userInfo" style="display:none;">
+    <h2>Willkommen, <span id="username"></span>!</h2>
+    <p>Ihre E-Mail: <span id="useremail"></span></p>
+    <h3>Ihre Bestellungen:</h3>
+    <div id="orders"></div>
+  </div>
+
+  <script>
+    let currentUserEmail = '';
+
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        // Aufruf des Registration Endpunktes der API und senden der Informationen aus dem Form
+        // Anzeigen des response als alert z.B.
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      // Aufruf des Login Endpunktes der API mit email und password im body aus dem Form
+      // Als ergebnis wird der user zurückgegeben.
+      // Dann kann die userInfo ausgefüllt werden und die loadorders() funktion aufgerufen werden
+    });
+
+    async function loadOrders() {
+      // Aufruf der userOrders Endpunkt der API mit email referenz des user in der URL
+      // Aufbau einer dynamischen HTML Anzeige der Order informationen, falls es welche gibt.
+    }
+  </script>
+</body>
+</html>

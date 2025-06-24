@@ -12,7 +12,31 @@ export default async function handler(req, res) {
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  // Abfrage aus der Datenbank nach allen orders und order_items die ein user hat
-  // Falls user nicht existiert, fehlermeldung
-  // Sonst orders als json zurücksenden
+  const { email } = req.query;
+
+  try {
+    const user = await prisma.users.findUnique({
+      where: { email },
+      include: {
+        orders: {
+          include: {
+            order_items: {
+              include: {
+                products: true
+              }
+            }
+          }
+        }
+      }
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: 'Benutzer nicht gefunden' });
+    }
+
+    res.status(200).json({ orders: user.orders });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Serverfehler' });
+  }
 }

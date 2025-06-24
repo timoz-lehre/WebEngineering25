@@ -31,19 +31,60 @@
     let currentUserEmail = '';
 
     document.getElementById('registerForm').addEventListener('submit', async (e) => {
-        // Aufruf des Registration Endpunktes der API und senden der Informationen aus dem Form
-        // Anzeigen des response als alert z.B.
+      e.preventDefault();
+      const form = e.target;
+      const res = await fetch('http://localhost:3000/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.value,
+          email: form.email.value,
+          password: form.password.value
+        })
+      });
+      alert(await res.text());
     });
 
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
-      // Aufruf des Login Endpunktes der API mit email und password im body aus dem Form
-      // Als ergebnis wird der user zurückgegeben.
-      // Dann kann die userInfo ausgefüllt werden und die loadorders() funktion aufgerufen werden
+      e.preventDefault();
+      const form = e.target;
+      const res = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: form.email.value,
+          password: form.password.value
+        })
+      });
+      const result = await res.json();
+      if (result.user) {
+        document.getElementById('username').textContent = result.user.name;
+        document.getElementById('useremail').textContent = result.user.email;
+        document.getElementById('userInfo').style.display = 'block';
+        currentUserEmail = result.user.email;
+        loadOrders();
+      } else {
+        alert(result.error || 'Login failed');
+      }
     });
 
     async function loadOrders() {
-      // Aufruf der userOrders Endpunkt der API mit email referenz des user in der URL
-      // Aufbau einer dynamischen HTML Anzeige der Order informationen, falls es welche gibt.
+      const res = await fetch(`http://localhost:3000/api/userOrders?email=${encodeURIComponent(currentUserEmail)}`);
+      const res_json = await res.json();
+      const container = document.getElementById('orders');
+      container.innerHTML = '';
+      res_json.orders.forEach(order => {
+        const div = document.createElement('div');
+        div.innerHTML = `<h4>Bestellung #${order.id} vom ${new Date(order.order_date).toLocaleDateString()}</h4>`;
+        const ul = document.createElement('ul');
+        order.order_items.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = `${item.quantity}x ${item.products.name} – €${item.products.price}`;
+          ul.appendChild(li);
+        });
+        div.appendChild(ul);
+        container.appendChild(div);
+      });
     }
   </script>
 </body>

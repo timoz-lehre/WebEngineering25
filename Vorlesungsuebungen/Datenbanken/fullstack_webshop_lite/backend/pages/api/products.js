@@ -11,6 +11,5 @@ export default async function handler(req, res) {
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  const products = await prisma.products.findMany();
-  res.status(200).json(products);
+  // Alle verfügbaren produkte aus der Datenbank zurücksenden
 }
