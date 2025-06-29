@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Profilseite</title></head>
+<body>
+  <h1>Willkommen, <span id="user"></span></h1>
+
+  <form onsubmit="event.preventDefault(); showUser();">
+    <input type="text" id="username" placeholder="Dein Name">
+    <button type="submit">Absenden</button>
+  </form>
+
+  <script>
+    function showUser() {
+      const input = document.getElementById('username').value;
+      document.getElementById('user').innerHTML = input;
+    }
+  </script>
+</body>
+</html>

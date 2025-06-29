@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Suchergebnis</title></head>
+<body>
+  <h2>Suchergebnis für:</h2>
+  <p id="result"></p>
+
+  <script>
+    const query = new URLSearchParams(location.search).get('q');
+    document.getElementById('result').innerHTML = query;
+  </script>
+</body>
+</html>

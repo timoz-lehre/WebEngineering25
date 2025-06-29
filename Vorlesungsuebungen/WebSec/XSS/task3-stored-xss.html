@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat (Stored XSS via localStorage)</title>
+</head>
+<body>
+  <h1>Chatverlauf</h1>
+  <ul id="chat"></ul>
+
+  <form onsubmit="event.preventDefault(); addMessage();">
+    <input type="text" id="msg" placeholder="Nachricht">
+    <button type="submit">Senden</button>
+  </form>
+
+  <button onclick="clearMessages()">Chat löschen</button>
+
+  <script>
+    // Nachrichten aus localStorage laden oder leeres Array
+    const messages = JSON.parse(localStorage.getItem('chat') || '[]');
+
+    function addMessage() {
+      const msg = document.getElementById('msg').value;
+      messages.push(msg);
+      localStorage.setItem('chat', JSON.stringify(messages));
+      renderChat();
+      document.getElementById('msg').value = '';
+    }
+
+    function renderChat() {
+      const chat = document.getElementById('chat');
+      chat.innerHTML = '';
+      for (const m of messages) {
+        const li = document.createElement('li');
+        li.innerHTML = m; // Absichtlich unsicher zur XSS-Demo
+        chat.appendChild(li);
+      }
+    }
+
+    function clearMessages() {
+      localStorage.removeItem('chat');
+      messages.length = 0;
+      renderChat();
+    }
+
+    // Beim Laden direkt Chat anzeigen
+    window.onload = renderChat;
+  </script>
+</body>
+</html>
